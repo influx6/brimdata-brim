@@ -17,6 +17,7 @@ import TabBar from "src/js/components/TabBar/TabBar"
 import styled from "styled-components"
 import {FeatureFlag} from "../core/feature-flag"
 import {Sidebar} from "src/app/features/sidebar"
+import RightPane from "../features/right-pane"
 
 const ColumnLayout = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ export default function AppWrapper({children}) {
                 off={<LeftPane />}
               />
               <ColumnLayout>{children}</ColumnLayout>
-              <XRightPane />
+              <FeatureFlag name="query-flow" on={null} off={<XRightPane />} />
             </RowLayout>
             <StatusBar />
           </ColumnLayout>
